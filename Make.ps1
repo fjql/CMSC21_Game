@@ -4,17 +4,19 @@ if (-not (Test-Path -Path "bin")) {
 }
 
 $compiler = "clang++"
-if ($Args -contains "g++") {
+
+if (($Args -contains "g++") -or (-not (Get-Command "clang.exe"))) {
+    Write-Host "Can't find clang++." -ForegroundColor Red
     $compiler = "g++"
 }
 
-if ((Get-Command "clang++.exe") -or (Get-Command "g++.exe")) {
-    & $compiler ./src/*.cpp -o ./bin/Game.exe -std=c++2b -Wall -Wextra -O1
-
-    if ($Args -contains "run") {
-        bin/Game.exe
-    }
-} else {
-    Write-Host "Can't find compiler." -ForegroundColor Red
+if (-not (Get-Command "g++.exe")) {
+    Write-Host "Can't find g++." -ForegroundColor Red
     Return
+}
+
+& $compiler ./src/*.cpp -o ./bin/Game.exe -std=c++2b -Wall -Wextra -O1
+
+if ($Args -contains "run") {
+    bin/Game.exe
 }
