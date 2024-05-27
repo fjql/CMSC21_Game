@@ -1,7 +1,5 @@
 #pragma once
 
-#include <format>
-#include <sstream>
 #include <string>
 
 typedef enum {
@@ -32,7 +30,7 @@ class Card {
     return m_value;
   }
 
-  const char* getSuit() {
+  std::string getSuit() {
     switch (m_suit) {
       case CLUBS:
         return "Clubs";
