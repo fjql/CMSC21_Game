@@ -1,6 +1,9 @@
 #include <print>
 
+#include "game.hpp"
+
 int main (void) {
-    std::print("Hello world!");
+    Game game{};
+
     return 0;
 }
