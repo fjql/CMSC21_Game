@@ -25,6 +25,7 @@ class Game {
   void shuffleHalf();
   void shuffleOverhand();
   void shuffleRiffle();
+  void shuffleTheresAnActualShuffleFunctionWow();
 
   public:
 
@@ -43,8 +44,10 @@ class Game {
   }
 
   void displayDeck() {
+    int i = 0;
     for (Card* card : m_deck) {
-      std::printf("%s of %s (%d)\n", card->getFace().c_str(), card->getSuit().c_str(), card->getValue());
+      std::printf("%d\t %s of %s (%d)\n", i, card->getFace().c_str(), card->getSuit().c_str(), card->getValue());
+      i++;
     }
     std::printf("\n");
   }

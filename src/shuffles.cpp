@@ -1,6 +1,8 @@
 #include "game.hpp"
 
+#include <algorithm>
 #include <cstdlib>
+#include <random>
 #include <vector>
 #include <xutility>
 
@@ -27,8 +29,8 @@ void Game::shuffleOverhand() {
       randn = 52 - count;
     }
 
-    // lunch time brb
-    // take chunks then place
+    m_deck.reserve(m_deck.size() + randn);
+    m_deck.insert(m_deck.begin(), temp.begin() + count, temp.begin() + count + randn);
 
     count += randn;
   }
@@ -44,4 +46,11 @@ void Game::shuffleRiffle() {
     m_deck.push_back(first[i]);
     m_deck.push_back(second[i]);
   }
+}
+
+void Game::shuffleTheresAnActualShuffleFunctionWow() {
+  // So it turns out this thing exists, I'm keeping the other stuff anyway because sunk cost fallacy.
+
+  std::default_random_engine rng{};
+  std::shuffle(m_deck.begin(), m_deck.end(), rng);
 }
