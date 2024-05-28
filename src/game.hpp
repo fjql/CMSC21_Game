@@ -11,6 +11,8 @@ class Game {
   std::vector<Card*> m_deck;
 
   void generateDeck() {
+    m_deck = {};
+
     for (int i = 0; i < 4; i++) {
       m_deck.push_back(new Card(0, Suit(i), ACE));
       m_deck.push_back(new Card(10, Suit(i), JACK));
