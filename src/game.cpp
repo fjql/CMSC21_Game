@@ -1,5 +1,5 @@
 #include "game.hpp"
 
-void Game::shuffleDeck() {
+void Game::shuffleDeck(int times) {
   shuffleHalf();
 }

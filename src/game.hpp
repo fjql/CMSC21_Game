@@ -23,6 +23,7 @@ class Game {
   }
 
   void shuffleHalf();
+  void shuffleOverhand();
   void shuffleRiffle();
 
   public:
@@ -34,14 +35,19 @@ class Game {
   }
 
   ~Game() {
+    for (Card* card : m_deck) {
+      card->~Card();
+    }
+    m_deck.clear();
+    m_deck.shrink_to_fit();
   }
 
   void displayDeck() {
     for (Card* card : m_deck) {
       std::printf("%s of %s (%d)\n", card->getFace().c_str(), card->getSuit().c_str(), card->getValue());
     }
-      std::printf("\n");
+    std::printf("\n");
   }
 
-  void shuffleDeck();
+  void shuffleDeck(int times);
 };
