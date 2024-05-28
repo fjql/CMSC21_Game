@@ -3,7 +3,7 @@ yet another blackjack :black_joker: game, might not add graphics cus no time t-t
 
 # How 2 build
 ## Requirements
-- clang
+- clang++
 - Powershell
 ## Compiling
 1. Open terminal
