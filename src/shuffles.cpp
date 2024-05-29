@@ -4,7 +4,6 @@
 #include <cstdlib>
 #include <random>
 #include <vector>
-#include <xutility>
 
 void Game::shuffleHalf() {
   std::vector<Card*> first(m_deck.begin(), m_deck.begin() + 26);
