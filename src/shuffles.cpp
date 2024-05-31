@@ -2,12 +2,13 @@
 
 #include <algorithm>
 #include <cstdlib>
+#include <memory>
 #include <random>
 #include <vector>
 
 void Game::shuffleHalf() {
-  std::vector<Card *> first(m_deck.begin(), m_deck.begin() + 26);
-  std::vector<Card *> second(m_deck.begin() + 26, m_deck.end());
+  std::vector<std::shared_ptr<Card>> first(m_deck.begin(), m_deck.begin() + 26);
+  std::vector<std::shared_ptr<Card>> second(m_deck.begin() + 26, m_deck.end());
 
   m_deck.clear();
 
@@ -16,7 +17,7 @@ void Game::shuffleHalf() {
 }
 
 void Game::shuffleOverhand() {
-  std::vector<Card *> temp(m_deck.begin(), m_deck.end());
+  std::vector<std::shared_ptr<Card>> temp(m_deck.begin(), m_deck.end());
 
   m_deck.clear();
 
@@ -37,8 +38,8 @@ void Game::shuffleOverhand() {
 }
 
 void Game::shuffleRiffle() {
-  std::vector<Card *> first(m_deck.begin(), m_deck.begin() + 26);
-  std::vector<Card *> second(m_deck.begin() + 26, m_deck.end());
+  std::vector<std::shared_ptr<Card>> first(m_deck.begin(), m_deck.begin() + 26);
+  std::vector<std::shared_ptr<Card>> second(m_deck.begin() + 26, m_deck.end());
 
   m_deck.clear();
 
