@@ -7,6 +7,12 @@
 
 #include "card.hpp"
 
+typedef enum {
+  START = 0,
+  PLAYING = 1,
+  END = 2
+} GameState;
+
 class Game {
   std::vector<Card*> m_deck;
 
