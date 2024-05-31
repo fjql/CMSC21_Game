@@ -20,15 +20,15 @@ public:
   std::string getSuit() {
     switch (m_suit) {
     case CLUBS:
-      return "Clubs";
+      return "♣";
     case DIAMONDS:
-      return "Diamonds";
+      return "♦";
     case HEARTS:
-      return "Hearts";
+      return "♥";
     case SPADES:
-      return "Spades";
+      return "♠";
     default:
-      return "HUH?!?!";
+      return "⁉";
     }
   }
 

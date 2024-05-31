@@ -2,9 +2,9 @@
 
 #include <cstdlib>
 #include <ctime>
+#include <memory>
 #include <print>
 #include <vector>
-#include <memory>
 
 #include "card.hpp"
 
@@ -53,8 +53,8 @@ public:
   void displayDeck() {
     int i = 0;
     for (auto card : m_deck) {
-      std::printf("%d\t %s of %s (%d)\n", i, card->getFace().c_str(),
-                  card->getSuit().c_str(), card->getValue());
+      std::printf("%d\t %s %s (%d)\n", i, card->getSuit().c_str(),
+                  card->getFace().c_str(), card->getValue());
       i++;
     }
     std::printf("\n");
