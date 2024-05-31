@@ -1,11 +1,18 @@
+#if defined(_WIN32)
+#include <windows.h>
+#include <winnls.h>
+#endif
+
 #include <print>
 
 #include "game.hpp"
 
 int main(void) {
-  Game game{};
+#if defined(_WIN32)
+  SetConsoleOutputCP(CP_UTF8);
+#endif
 
-  game.gameLoop();
+  Game game{};
 
   return 0;
 }
