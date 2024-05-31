@@ -2,14 +2,10 @@
 
 #include "game.hpp"
 
-int main (void) {
-    Game game{};
+int main(void) {
+  Game game{};
 
-    game.displayDeck();
+  game.gameLoop();
 
-    game.shuffleDeck(4);
-    
-    game.displayDeck();
-
-    return 0;
+  return 0;
 }

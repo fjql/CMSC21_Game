@@ -1,20 +1,17 @@
 #pragma once
 
-#include <print>
-#include <vector>
 #include <cstdlib>
 #include <ctime>
+#include <print>
+#include <vector>
 
 #include "card.hpp"
 
-typedef enum {
-  START = 0,
-  PLAYING = 1,
-  END = 2
-} GameState;
+typedef enum { START = 0, PLAYING = 1, END = 2 } GameState;
 
 class Game {
-  std::vector<Card*> m_deck;
+  std::vector<Card *> m_deck;
+  GameState m_state = START;
 
   void generateDeck() {
     m_deck = {};
@@ -35,8 +32,7 @@ class Game {
   void shuffleRiffle();
   void shuffleTheresAnActualShuffleFunctionWow();
 
-  public:
-
+public:
   Game() {
     std::srand(std::time(nullptr));
 
@@ -44,21 +40,32 @@ class Game {
   }
 
   ~Game() {
-    for (Card* card : m_deck) {
+    for (Card *card : m_deck) {
       card->~Card();
     }
     m_deck.clear();
     m_deck.shrink_to_fit();
   }
 
+  GameState getState() { return m_state; }
+
   void displayDeck() {
     int i = 0;
-    for (Card* card : m_deck) {
-      std::printf("%d\t %s of %s (%d)\n", i, card->getFace().c_str(), card->getSuit().c_str(), card->getValue());
+    for (Card *card : m_deck) {
+      std::printf("%d\t %s of %s (%d)\n", i, card->getFace().c_str(),
+                  card->getSuit().c_str(), card->getValue());
       i++;
     }
     std::printf("\n");
   }
 
   void shuffleDeck(int times);
+
+  void updateStart();
+  void renderStart();
+
+  void updatePlaying();
+  void renderPlaying();
+
+  void gameLoop();
 };

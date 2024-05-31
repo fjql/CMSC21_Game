@@ -2,47 +2,34 @@
 
 #include <string>
 
-typedef enum {
-  CLUBS = 0,
-  DIAMONDS = 1,
-  HEARTS = 2,
-  SPADES = 3
-} Suit;
+typedef enum { CLUBS = 0, DIAMONDS = 1, HEARTS = 2, SPADES = 3 } Suit;
 
-typedef enum {
-  ACE,
-  JACK,
-  KING,
-  QUEEN,
-  NUMBER
-} Face;
+typedef enum { ACE, JACK, KING, QUEEN, NUMBER } Face;
 
 class Card {
   int m_value = 0;
   Suit m_suit;
   Face m_face;
 
-  public:
+public:
+  Card(int val, Suit suit, Face face)
+      : m_value(val), m_suit(suit), m_face(face) {}
 
-  Card(int val, Suit suit, Face face) : m_value(val), m_suit(suit), m_face(face) { }
-  
-  int getValue() {
-    return m_value;
-  }
+  int getValue() { return m_value; }
 
   std::string getSuit() {
     switch (m_suit) {
-      case CLUBS:
-        return "Clubs";
-      case DIAMONDS:
-        return "Diamonds";
-      case HEARTS:
-        return "Hearts";
-      case SPADES:
-        return "Spades";
-      default:
-        return "HUH?!?!";
-      }
+    case CLUBS:
+      return "Clubs";
+    case DIAMONDS:
+      return "Diamonds";
+    case HEARTS:
+      return "Hearts";
+    case SPADES:
+      return "Spades";
+    default:
+      return "HUH?!?!";
+    }
   }
 
   std::string getFace() {

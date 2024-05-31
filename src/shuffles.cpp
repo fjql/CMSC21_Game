@@ -6,9 +6,9 @@
 #include <vector>
 
 void Game::shuffleHalf() {
-  std::vector<Card*> first(m_deck.begin(), m_deck.begin() + 26);
-  std::vector<Card*> second(m_deck.begin() + 26, m_deck.end());
-  
+  std::vector<Card *> first(m_deck.begin(), m_deck.begin() + 26);
+  std::vector<Card *> second(m_deck.begin() + 26, m_deck.end());
+
   m_deck.clear();
 
   m_deck.insert(m_deck.begin(), second.begin(), second.end());
@@ -16,7 +16,7 @@ void Game::shuffleHalf() {
 }
 
 void Game::shuffleOverhand() {
-  std::vector<Card*> temp(m_deck.begin(), m_deck.end());
+  std::vector<Card *> temp(m_deck.begin(), m_deck.end());
 
   m_deck.clear();
 
@@ -29,15 +29,16 @@ void Game::shuffleOverhand() {
     }
 
     m_deck.reserve(m_deck.size() + randn);
-    m_deck.insert(m_deck.begin(), temp.begin() + count, temp.begin() + count + randn);
+    m_deck.insert(m_deck.begin(), temp.begin() + count,
+                  temp.begin() + count + randn);
 
     count += randn;
   }
 }
 
 void Game::shuffleRiffle() {
-  std::vector<Card*> first(m_deck.begin(), m_deck.begin() + 26);
-  std::vector<Card*> second(m_deck.begin() + 26, m_deck.end());
+  std::vector<Card *> first(m_deck.begin(), m_deck.begin() + 26);
+  std::vector<Card *> second(m_deck.begin() + 26, m_deck.end());
 
   m_deck.clear();
 
@@ -48,7 +49,8 @@ void Game::shuffleRiffle() {
 }
 
 void Game::shuffleTheresAnActualShuffleFunctionWow() {
-  // So it turns out this thing exists, I'm keeping the other stuff anyway because sunk cost fallacy.
+  // So it turns out this thing exists, I'm keeping the other stuff anyway
+  // because sunk cost fallacy.
 
   std::default_random_engine rng{};
   std::shuffle(m_deck.begin(), m_deck.end(), rng);
