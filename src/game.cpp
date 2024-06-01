@@ -1,6 +1,5 @@
 #include "game.hpp"
-#include "screens.hpp"
-#include <cstdlib>
+#include "render.hpp"
 
 #if defined(_WIN32)
 #include <conio.h>
@@ -42,7 +41,6 @@ void Game::update() {}
 void Game::render() {
   std::system("clear");
   if (m_state == START) {
-    // std::fputs(start.c_str(), stdout);
-    std::printf("%s\n", start.c_str());
+    std::printf("%s\n%s\n%s\n", separator.c_str(), start.c_str(), separator.c_str());
   }
 }
