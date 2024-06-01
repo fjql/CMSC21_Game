@@ -17,8 +17,6 @@ void Game::loop() {
       m_state = END;
     }
 
-    std::printf("asdf: %c\n", input);
-
     update();
     render();
   }
