@@ -14,7 +14,5 @@ int main(void) {
 
   Game game{};
 
-  game.displayDeck();
-
   return 0;
 }

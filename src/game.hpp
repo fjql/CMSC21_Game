@@ -38,6 +38,8 @@ public:
     std::srand(std::time(nullptr));
 
     generateDeck();
+
+    shuffleDeck(6);
   }
 
   ~Game() {
