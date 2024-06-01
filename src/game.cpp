@@ -1,13 +1,27 @@
 #include "game.hpp"
 #include "screens.hpp"
-
 #include <cstdlib>
 
+#if defined(_WIN32)
+#include <conio.h>
+#endif
+
 void Game::loop() {
-  //while (m_state != END) {
+  render();
+  while (m_state != END) {
+#if defined(_WIN32)
+    char input = _getch();
+#endif
+
+    if (input == 27) {
+      m_state = END;
+    }
+
+    std::printf("asdf: %c\n", input);
+
     update();
     render();
-  //}
+  }
 }
 
 void Game::shuffleDeck(int times) {
@@ -30,7 +44,7 @@ void Game::update() {}
 void Game::render() {
   std::system("clear");
   if (m_state == START) {
-    //std::fputs(start.c_str(), stdout);
+    // std::fputs(start.c_str(), stdout);
     std::printf("%s\n", start.c_str());
   }
 }

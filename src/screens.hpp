@@ -2,6 +2,5 @@
 
 #include <string>
 
-inline std::string start =
-"asdff \
+inline std::string start = "asdff \
 asdfasdfasdf";
