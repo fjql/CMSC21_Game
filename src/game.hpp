@@ -64,7 +64,7 @@ public:
 
   void shuffleDeck(int times);
 
-  void update();
+  void update(char * input);
   void render();
 
   void loop();
