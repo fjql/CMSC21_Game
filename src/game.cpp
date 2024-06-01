@@ -1,15 +1,13 @@
 #include "game.hpp"
+#include "screens.hpp"
 
-void Game::gameLoop() {
-  while (m_state != END) {
-    if (m_state == START) {
-      updateStart();
-      renderStart();
-    } else if (m_state == PLAYING) {
-      updatePlaying();
-      renderPlaying();
-    }
-  }
+#include <cstdlib>
+
+void Game::loop() {
+  //while (m_state != END) {
+    update();
+    render();
+  //}
 }
 
 void Game::shuffleDeck(int times) {
@@ -24,5 +22,15 @@ void Game::shuffleDeck(int times) {
       shuffleOverhand();
     else
       shuffleTheresAnActualShuffleFunctionWow();
+  }
+}
+
+void Game::update() {}
+
+void Game::render() {
+  std::system("clear");
+  if (m_state == START) {
+    //std::fputs(start.c_str(), stdout);
+    std::printf("%s\n", start.c_str());
   }
 }

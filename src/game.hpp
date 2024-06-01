@@ -64,11 +64,8 @@ public:
 
   void shuffleDeck(int times);
 
-  void updateStart();
-  void renderStart();
+  void update();
+  void render();
 
-  void updatePlaying();
-  void renderPlaying();
-
-  void gameLoop();
+  void loop();
 };
