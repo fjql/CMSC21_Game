@@ -36,6 +36,18 @@ void Game::shuffleDeck(int times) {
   }
 }
 
+void Game::initialDeal() {
+  for (int i = 0; i < 2; i++) {
+    m_dealer->addCard(m_deck.back());
+    m_deck.pop_back();
+    m_deck.shrink_to_fit();
+
+    m_player->addCard(m_deck.back());
+    m_deck.pop_back();
+    m_deck.shrink_to_fit();
+  }
+}
+
 void Game::update(char *input) {
   if (m_state == START) {
     if (*input == 49) {
@@ -44,6 +56,18 @@ void Game::update(char *input) {
 
     if (*input == 50) {
       m_state = END;
+    }
+  }
+
+  if (m_state == PLAYING) {
+    if (!m_started) {
+      generateDeck();
+
+      shuffleDeck(6);
+
+      initialDeal();
+
+      m_started = true;
     }
   }
 }
@@ -56,10 +80,28 @@ void Game::render() {
   }
 
   if (m_state == PLAYING) {
-    std::printf(cards.c_str(), m_deck[0]->getSuit().c_str(),
-                m_deck[1]->getSuit().c_str(), m_deck[0]->getFace().c_str(),
-                m_deck[1]->getFace().c_str(), m_deck[0]->getSuit().c_str(),
-                m_deck[1]->getSuit().c_str());
+    std::printf("%s\n", separator.c_str());
+
+    std::print("Dealer: \n");
+
+    std::printf(dealer.c_str(), m_dealer->getCard()->getSuit().c_str(),
+                m_dealer->getCard()->getFace().c_str(),
+                m_dealer->getCard()->getSuit().c_str());
+
+    m_dealer->displayHand();
+
+    std::print("You: \n");
+
+    std::printf(player.c_str(), m_player->getHand()[0]->getSuit().c_str(),
+                m_player->getHand()[1]->getSuit().c_str(),
+                m_player->getHand()[0]->getFace().c_str(),
+                m_player->getHand()[1]->getFace().c_str(),
+                m_player->getHand()[0]->getSuit().c_str(),
+                m_player->getHand()[1]->getSuit().c_str());
+
+    m_player->displayHand();
+    
+    std::printf("%s\n", separator.c_str());
   }
 
   if (m_state == END) {

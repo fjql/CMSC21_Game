@@ -17,6 +17,7 @@ class Game {
   GameState m_state = START;
   std::shared_ptr<Dealer> m_dealer;
   std::shared_ptr<Player> m_player;
+  bool m_started = false;
 
   void generateDeck() {
     m_deck = {};
@@ -41,9 +42,8 @@ public:
   Game() {
     std::srand(std::time(nullptr));
 
-    generateDeck();
-
-    shuffleDeck(6);
+    m_dealer = std::make_shared<Dealer>();
+    m_player = std::make_shared<Player>();
   }
 
   ~Game() {
@@ -67,6 +67,9 @@ public:
   }
 
   void shuffleDeck(int times);
+  void initialDeal();
+  void addDealer();
+  void addPlayer();
 
   void update(char *input);
   void render();

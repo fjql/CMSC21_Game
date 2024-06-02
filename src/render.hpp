@@ -13,11 +13,20 @@ inline std::string start =  " .------..------..------..------..------..------..-
 
 inline std::string start_options = " 1.\tStart\n 2.\tExit";
 
-inline std::string cards =  " ________\t ________\n"
+inline std::string dealer = " ________\t ________\n"
+                            "/ %s      \\\t/ ?      \\\n"
+                            "|        |\t|        |\n"
+                            "|        |\t|        |\n"
+                            "|   %s    |\t|   ?    |\n"
+                            "|        |\t|        |\n"
+                            "|      %s |\t|      ? |\n"
+                            "\\________/\t\\________/\n";
+
+inline std::string player = " ________\t ________\n"
                             "/ %s      \\\t/ %s      \\\n"
                             "|        |\t|        |\n"
                             "|        |\t|        |\n"
                             "|   %s    |\t|   %s    |\n"
                             "|        |\t|        |\n"
                             "|      %s |\t|      %s |\n"
-                            "\\________/\t\\________/";
+                            "\\________/\t\\________/\n";
