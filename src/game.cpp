@@ -44,6 +44,12 @@ void Game::deal() {
   }
 }
 
+void Game::addPlayer() {
+  m_player->addCard(m_deck.back());
+  m_deck.pop_back();
+  m_deck.shrink_to_fit();
+}
+
 void Game::update(char *input) {
   if (m_state == START) {
     if (*input == 49) {
@@ -64,6 +70,21 @@ void Game::update(char *input) {
       deal();
 
       m_started = true;
+    }
+
+    if (*input == 49) {
+      if (m_player->getHit()) {
+        if (m_player->getVals() > 21) {
+          // win then reset or smth
+        } else {
+          
+        }
+      }
+
+      m_player->hit();
+      m_player->addCard(m_deck.back());
+      m_deck.pop_back();
+      m_deck.shrink_to_fit();
     }
   }
 }
