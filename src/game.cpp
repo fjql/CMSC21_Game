@@ -73,13 +73,14 @@ void Game::update(char *input) {
     }
 
     if (*input == 49) {
-
       m_player->hit();
       m_player->addCard(m_deck.back());
       m_deck.pop_back();
       m_deck.shrink_to_fit();
 
-      if (m_player->getVals() > 21) {
+      if (m_player->getVals() == 21){
+        //win
+      } else if (m_player->getVals() > 21) {
         // lose
       }
     }
