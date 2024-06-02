@@ -36,7 +36,7 @@ void Game::shuffleDeck(int times) {
   }
 }
 
-void Game::update(char * input) {
+void Game::update(char *input) {
   if (m_state == START) {
     if (*input == 49) {
       m_state = PLAYING;
@@ -51,11 +51,15 @@ void Game::update(char * input) {
 void Game::render() {
   std::system("clear");
   if (m_state == START) {
-    std::printf("%s\n%s\n%s\n%s\n%s\n", separator.c_str(), start.c_str(), separator.c_str(), start_options.c_str(), separator.c_str());
+    std::printf("%s\n%s\n%s\n%s\n%s\n", separator.c_str(), start.c_str(),
+                separator.c_str(), start_options.c_str(), separator.c_str());
   }
 
   if (m_state == PLAYING) {
-    std::printf("later");
+    std::printf(cards.c_str(), m_deck[0]->getSuit().c_str(),
+                m_deck[1]->getSuit().c_str(), m_deck[0]->getFace().c_str(),
+                m_deck[1]->getFace().c_str(), m_deck[0]->getSuit().c_str(),
+                m_deck[1]->getSuit().c_str());
   }
 
   if (m_state == END) {

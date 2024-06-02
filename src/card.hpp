@@ -35,13 +35,13 @@ public:
   std::string getFace() {
     switch (m_face) {
     case ACE:
-      return "Ace";
+      return "A";
     case JACK:
-      return "Jack";
+      return "J";
     case KING:
-      return "King";
+      return "K";
     case QUEEN:
-      return "Queen";
+      return "Q";
     case NUMBER:
       return std::to_string(m_value);
     }

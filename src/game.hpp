@@ -7,12 +7,16 @@
 #include <vector>
 
 #include "card.hpp"
+#include "dealer.hpp"
+#include "player.hpp"
 
 typedef enum { START = 0, PLAYING = 1, END = 2 } GameState;
 
 class Game {
   std::vector<std::shared_ptr<Card>> m_deck;
   GameState m_state = START;
+  std::shared_ptr<Dealer> m_dealer;
+  std::shared_ptr<Player> m_player;
 
   void generateDeck() {
     m_deck = {};
@@ -64,7 +68,7 @@ public:
 
   void shuffleDeck(int times);
 
-  void update(char * input);
+  void update(char *input);
   void render();
 
   void loop();
