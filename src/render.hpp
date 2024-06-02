@@ -13,20 +13,22 @@ inline std::string start =  " .------..------..------..------..------..------..-
 
 inline std::string start_options = " 1.\tStart\n 2.\tExit";
 
-inline std::string dealer = " ________\t ________\n"
-                            "/ %s      \\\t/ ?      \\\n"
-                            "|        |\t|        |\n"
-                            "|        |\t|        |\n"
-                            "|   %s    |\t|   ?    |\n"
-                            "|        |\t|        |\n"
-                            "|      %s |\t|      ? |\n"
-                            "\\________/\t\\________/\n";
+inline std::string dealer = "\t\t\t ________\t ________\n"
+                            "\t\t\t/ %s      \\\t/ ?      \\\n"
+                            "\t\t\t|        |\t|        |\n"
+                            "\t\t\t|        |\t|        |\n"
+                            "\t\t\t|   %s    |\t|   ?    |\n"
+                            "\t\t\t|        |\t|        |\n"
+                            "\t\t\t|      %s |\t|      ? |\n"
+                            "\t\t\t\\________/\t\\________/\n";
 
-inline std::string player = " ________\t ________\n"
-                            "/ %s      \\\t/ %s      \\\n"
-                            "|        |\t|        |\n"
-                            "|        |\t|        |\n"
-                            "|   %s    |\t|   %s    |\n"
-                            "|        |\t|        |\n"
-                            "|      %s |\t|      %s |\n"
-                            "\\________/\t\\________/\n";
+inline std::string player = "\t\t\t ________\t ________\n"
+                            "\t\t\t/ %s      \\\t/ %s      \\\n"
+                            "\t\t\t|        |\t|        |\n"
+                            "\t\t\t|        |\t|        |\n"
+                            "\t\t\t|   %s    |\t|   %s    |\n"
+                            "\t\t\t|        |\t|        |\n"
+                            "\t\t\t|      %s |\t|      %s |\n"
+                            "\t\t\t\\________/\t\\________/\n";
+
+inline std::string play_options = "1.\tHit\n2.\tStand\n%s";

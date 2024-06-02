@@ -91,6 +91,10 @@ void Game::render() {
     m_player->displayHand();
 
     std::printf("%s\n", separator.c_str());
+
+    std::printf(play_options.c_str(), msg.c_str());
+
+    std::printf("%s\n", separator.c_str());
   }
 
   if (m_state == END) {

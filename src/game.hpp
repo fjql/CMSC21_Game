@@ -39,6 +39,8 @@ class Game {
   void shuffleTheresAnActualShuffleFunctionWow();
 
 public:
+  std::string msg = "";
+
   Game() {
     std::srand(std::time(nullptr));
 
