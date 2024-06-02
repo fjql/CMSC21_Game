@@ -1,16 +1,12 @@
-#if defined(_WIN32)
+#include <print>
 #include <windows.h>
 #include <winnls.h>
-#endif
 
-#include <print>
 
 #include "game.hpp"
 
 int main(void) {
-#if defined(_WIN32)
   SetConsoleOutputCP(CP_UTF8);
-#endif
 
   Game game{};
 

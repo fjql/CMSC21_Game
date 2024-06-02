@@ -1,16 +1,12 @@
+#include <conio.h>
+
 #include "game.hpp"
 #include "render.hpp"
-
-#if defined(_WIN32)
-#include <conio.h>
-#endif
 
 void Game::loop() {
   render();
   while (m_state != END) {
-#if defined(_WIN32)
     char input = _getch();
-#endif
 
     if (input == 27) {
       m_state = END;
