@@ -84,23 +84,12 @@ void Game::render() {
 
     std::print("Dealer: \n");
 
-    std::printf(dealer.c_str(), m_dealer->getCard()->getSuit().c_str(),
-                m_dealer->getCard()->getFace().c_str(),
-                m_dealer->getCard()->getSuit().c_str());
-
     m_dealer->displayHand();
 
     std::print("You: \n");
 
-    std::printf(player.c_str(), m_player->getHand()[0]->getSuit().c_str(),
-                m_player->getHand()[1]->getSuit().c_str(),
-                m_player->getHand()[0]->getFace().c_str(),
-                m_player->getHand()[1]->getFace().c_str(),
-                m_player->getHand()[0]->getSuit().c_str(),
-                m_player->getHand()[1]->getSuit().c_str());
-
     m_player->displayHand();
-    
+
     std::printf("%s\n", separator.c_str());
   }
 

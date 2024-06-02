@@ -4,6 +4,7 @@
 #include <vector>
 
 #include "card.hpp"
+#include "render.hpp"
 
 class Player {
   std::vector<std::shared_ptr<Card>> m_hand;
@@ -16,11 +17,9 @@ public:
   void addCard(std::shared_ptr<Card> card) { m_hand.push_back(card); }
 
   void displayHand() {
-    int count = 1;
-    for (auto card : m_hand) {
-      std::printf("%d: %s %s, ", count, card->getFace().c_str(), card->getSuit().c_str());
-      count++;
-    }
-    std::printf("\n");
+    std::printf(player.c_str(), m_hand[0]->getSuit().c_str(),
+                m_hand[1]->getSuit().c_str(), m_hand[0]->getFace().c_str(),
+                m_hand[1]->getFace().c_str(), m_hand[0]->getSuit().c_str(),
+                m_hand[1]->getSuit().c_str());
   }
 };
