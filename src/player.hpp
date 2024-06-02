@@ -8,6 +8,7 @@
 
 class Player {
   std::vector<std::shared_ptr<Card>> m_hand;
+  int m_wins = 0;
 
 public:
   Player() { m_hand = {}; }

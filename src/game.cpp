@@ -36,7 +36,7 @@ void Game::shuffleDeck(int times) {
   }
 }
 
-void Game::initialDeal() {
+void Game::deal() {
   for (int i = 0; i < 2; i++) {
     m_dealer->addCard(m_deck.back());
     m_deck.pop_back();
@@ -65,7 +65,7 @@ void Game::update(char *input) {
 
       shuffleDeck(6);
 
-      initialDeal();
+      deal();
 
       m_started = true;
     }

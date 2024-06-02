@@ -67,7 +67,7 @@ public:
   }
 
   void shuffleDeck(int times);
-  void initialDeal();
+  void deal();
   void addDealer();
   void addPlayer();
 
