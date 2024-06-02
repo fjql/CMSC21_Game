@@ -1,5 +1,7 @@
 # CMSC21 Game
-yet another blackjack :black_joker: game, might not add graphics cus no time t-t
+yet another blackjack :black_joker: game (-ish? idk anything about this game tbh)
+
+will not add graphics cus no time t-t
 
 # How 2 build
 ## Requirements
