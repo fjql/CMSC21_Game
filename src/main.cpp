@@ -12,5 +12,7 @@ int main(void) {
 
   game.loop();
 
+  game.~Game();
+
   return 0;
 }

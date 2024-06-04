@@ -54,6 +54,9 @@ public:
     }
     m_deck.clear();
     m_deck.shrink_to_fit();
+
+    m_dealer->~Dealer();
+    m_player->~Player();
   }
 
   GameState getState() { return m_state; }
