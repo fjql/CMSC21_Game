@@ -29,7 +29,7 @@ public:
                   m_hand[0]->getFace().c_str(), m_hand[1]->getFace().c_str(),
                   m_hand[2]->getFace().c_str(), m_hand[0]->getSuit().c_str(),
                   m_hand[1]->getSuit().c_str(), m_hand[2]->getSuit().c_str());
-    } else if (m_hand.size() == 4) {
+    } else {
       std::printf(player_hit2.c_str(), m_hand[0]->getSuit().c_str(),
                   m_hand[1]->getSuit().c_str(), m_hand[2]->getSuit().c_str(),
                   m_hand[3]->getSuit().c_str(), m_hand[0]->getFace().c_str(),
@@ -37,38 +37,6 @@ public:
                   m_hand[3]->getFace().c_str(), m_hand[0]->getSuit().c_str(),
                   m_hand[1]->getSuit().c_str(), m_hand[2]->getSuit().c_str(),
                   m_hand[3]->getSuit().c_str());
-    } else if (m_hand.size() == 5) {
-      std::printf(player_hit3.c_str(), m_hand[0]->getSuit().c_str(),
-                  m_hand[1]->getSuit().c_str(), m_hand[2]->getSuit().c_str(),
-                  m_hand[3]->getSuit().c_str(), m_hand[4]->getSuit().c_str(),
-                  m_hand[0]->getFace().c_str(), m_hand[1]->getFace().c_str(),
-                  m_hand[2]->getFace().c_str(), m_hand[3]->getFace().c_str(),
-                  m_hand[4]->getFace().c_str(), m_hand[0]->getSuit().c_str(),
-                  m_hand[1]->getSuit().c_str(), m_hand[2]->getSuit().c_str(),
-                  m_hand[3]->getSuit().c_str(), m_hand[4]->getSuit().c_str());
-    } else if (m_hand.size() == 6) {
-      std::printf(player_hit4.c_str(), m_hand[0]->getSuit().c_str(),
-                  m_hand[1]->getSuit().c_str(), m_hand[2]->getSuit().c_str(),
-                  m_hand[3]->getSuit().c_str(), m_hand[4]->getSuit().c_str(),
-                  m_hand[5]->getSuit().c_str(), m_hand[0]->getFace().c_str(),
-                  m_hand[1]->getFace().c_str(), m_hand[2]->getFace().c_str(),
-                  m_hand[3]->getFace().c_str(), m_hand[4]->getFace().c_str(),
-                  m_hand[5]->getFace().c_str(), m_hand[0]->getSuit().c_str(),
-                  m_hand[1]->getSuit().c_str(), m_hand[2]->getSuit().c_str(),
-                  m_hand[3]->getSuit().c_str(), m_hand[4]->getSuit().c_str(),
-                  m_hand[5]->getSuit().c_str());
-    } else {
-      std::printf(player_hit5.c_str(), m_hand[0]->getSuit().c_str(),
-                  m_hand[1]->getSuit().c_str(), m_hand[2]->getSuit().c_str(),
-                  m_hand[3]->getSuit().c_str(), m_hand[4]->getSuit().c_str(),
-                  m_hand[5]->getSuit().c_str(), m_hand[6]->getSuit().c_str(),
-                  m_hand[0]->getFace().c_str(), m_hand[1]->getFace().c_str(),
-                  m_hand[2]->getFace().c_str(), m_hand[3]->getFace().c_str(),
-                  m_hand[4]->getFace().c_str(), m_hand[5]->getFace().c_str(),
-                  m_hand[6]->getFace().c_str(), m_hand[0]->getSuit().c_str(),
-                  m_hand[1]->getSuit().c_str(), m_hand[2]->getSuit().c_str(),
-                  m_hand[3]->getSuit().c_str(), m_hand[4]->getSuit().c_str(),
-                  m_hand[5]->getSuit().c_str(), m_hand[6]->getFace().c_str());
     }
   }
 
