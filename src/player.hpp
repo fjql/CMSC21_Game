@@ -2,6 +2,7 @@
 
 #include <memory>
 #include <vector>
+#include <windows.h>
 
 #include "card.hpp"
 #include "render.hpp"
@@ -15,7 +16,10 @@ public:
 
   std::vector<std::shared_ptr<Card>> getHand() { return m_hand; }
 
-  void addCard(std::shared_ptr<Card> card) { m_hand.push_back(card); }
+  void addCard(std::shared_ptr<Card> card) { 
+    PlaySound("audio/hit.wav", NULL, SND_ASYNC | SND_FILENAME);
+    m_hand.push_back(card);
+  }
 
   void displayHand() {
     if (m_hand.size() == 2) {

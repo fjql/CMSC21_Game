@@ -15,7 +15,7 @@ if (-not (Get-Command "g++.exe")) {
     Return
 }
 
-& $compiler ./src/*.cpp -o ./bin/Game.exe -std=c++2b -Wall -Wextra -O1
+& $compiler ./src/*.cpp -o ./bin/Game.exe -std=c++2b -Wall -Wextra -O1 -lwinmm
 
 if ($Args -contains "run") {
     bin/Game.exe

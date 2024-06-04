@@ -37,11 +37,11 @@ void Game::deal() {
     m_dealer->addCard(m_deck.back());
     m_deck.pop_back();
     m_deck.shrink_to_fit();
+  }
 
     m_player->addCard(m_deck.back());
     m_deck.pop_back();
     m_deck.shrink_to_fit();
-  }
 }
 
 void Game::addPlayer() {
