@@ -22,6 +22,13 @@ public:
                 m_hand[0]->getFace().c_str(), m_hand[0]->getSuit().c_str());
   }
 
+  void revealHand() {
+      std::printf(player.c_str(), m_hand[0]->getSuit().c_str(),
+                  m_hand[1]->getSuit().c_str(), m_hand[0]->getFace().c_str(),
+                  m_hand[1]->getFace().c_str(), m_hand[0]->getSuit().c_str(),
+                  m_hand[1]->getSuit().c_str());
+  }
+
   int getVals() {
     int val = 0;
     for (auto card : m_hand) {

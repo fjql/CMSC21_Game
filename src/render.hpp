@@ -51,4 +51,4 @@ inline std::string player_hit2 =  "\t\t ________\t ________\t ________\t _______
 
 inline std::string bust = "";
 
-inline std::string play_options = "1.\tHit\n2.\tStand\n%s";
+inline std::string play_options = "1.\tHit\n2.\tStand\n3.\tReveal\n%s";

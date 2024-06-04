@@ -5,6 +5,7 @@
 #include <memory>
 #include <print>
 #include <vector>
+#include <windows.h>
 
 #include "card.hpp"
 #include "dealer.hpp"
@@ -46,6 +47,8 @@ public:
 
     m_dealer = std::make_shared<Dealer>();
     m_player = std::make_shared<Player>();
+
+    PlaySound("audio/extra.wav", NULL, SND_ASYNC | SND_LOOP | SND_FILENAME);
   }
 
   ~Game() {

@@ -18,6 +18,7 @@ void Game::loop() {
 }
 
 void Game::shuffleDeck(int times) {
+  PlaySound("audio/shuffle.wav", NULL, SND_SYNC | SND_FILENAME);
   for (int i = 0; i < times; i++) {
     int random = std::rand() % 4;
 
