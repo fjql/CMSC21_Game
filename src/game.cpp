@@ -12,7 +12,7 @@ void Game::loop() {
       m_state = END;
     }
 
-    update(&input);
+    update(input);
     render();
   }
 }
@@ -50,13 +50,13 @@ void Game::addPlayer() {
   m_deck.shrink_to_fit();
 }
 
-void Game::update(char *input) {
+void Game::update(char input) {
   if (m_state == START) {
-    if (*input == 49) {
+    if (input == 49) {
       m_state = PLAYING;
     }
 
-    if (*input == 50) {
+    if (input == 50) {
       m_state = END;
     }
   }
@@ -72,7 +72,12 @@ void Game::update(char *input) {
       m_started = true;
     }
 
-    if (*input == 49) {
+    if (input == 49) {
+      if (m_player->getHand().size() == 4) {
+        msg = "No more hits because it will ruin the UI, sorry.\n";
+        return;
+      }
+
       m_player->addCard(m_deck.back());
       m_deck.pop_back();
       m_deck.shrink_to_fit();

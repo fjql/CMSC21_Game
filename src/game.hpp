@@ -76,7 +76,7 @@ public:
   void addDealer();
   void addPlayer();
 
-  void update(char *input);
+  void update(char input);
   void render();
 
   void loop();
