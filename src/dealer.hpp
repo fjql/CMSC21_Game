@@ -13,6 +13,8 @@ class Dealer {
 public:
   Dealer() { m_hand = {}; }
 
+  void resetDeck() { m_hand.clear(); }
+
   std::shared_ptr<Card> getCard() { return m_hand[0]; }
 
   void addCard(std::shared_ptr<Card> card) { m_hand.push_back(card); }

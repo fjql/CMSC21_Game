@@ -3,7 +3,6 @@
 #include "game.hpp"
 #include "render.hpp"
 
-
 void Game::loop() {
   render();
   while (m_state != END) {
@@ -35,15 +34,27 @@ void Game::shuffleDeck(int times) {
 }
 
 void Game::deal() {
+  m_player->resetDeck();
+  m_dealer->resetDeck();
+
   for (int i = 0; i < 2; i++) {
     m_dealer->addCard(m_deck.back());
     m_deck.pop_back();
     m_deck.shrink_to_fit();
+    
+    if (m_player->isStopped()) {
+      m_player->addCard(m_deck.back());
+      m_deck.pop_back();
+      m_deck.shrink_to_fit();
+    }
   }
 
-    m_player->addCard(m_deck.back());
-    m_deck.pop_back();
-    m_deck.shrink_to_fit();
+  if (m_player->isStopped()) {
+    return;
+  }
+  m_player->addCard(m_deck.back());
+  m_deck.pop_back();
+  m_deck.shrink_to_fit();
 }
 
 void Game::addPlayer() {
@@ -53,7 +64,26 @@ void Game::addPlayer() {
 }
 
 void Game::checkWin() {
-  
+  if (m_player->getVals() == 21) {
+    m_player->addWin();
+    msg = win;
+  }
+
+  if (m_player->getVals() > 21) {
+    m_dealer->addWin();
+    msg = bust;
+    m_player->toggleStop();
+  }
+
+  if (m_player->isStopped()) {
+    if (m_player->getVals() > m_dealer->getVals() && m_player->getVals() <= 21) {
+      m_player->addWin();
+      msg = win;
+    } else {
+      m_dealer->addWin();
+      msg = bust;
+    }
+  }
 }
 
 void Game::update(char input) {
@@ -69,7 +99,7 @@ void Game::update(char input) {
 
   if (m_state == PLAYING) {
     if (!m_started) {
-      generateDeck();
+      generateDeck(1);
 
       shuffleDeck(6);
 
@@ -79,6 +109,10 @@ void Game::update(char input) {
     }
 
     if (input == 49) {
+      if (m_player->isStopped()) {
+        return;
+      }
+
       if (m_player->getHand().size() == 4) {
         msg = "No more hits because it will ruin the UI, sorry.\n";
         return;
@@ -91,7 +125,26 @@ void Game::update(char input) {
       checkWin();
     }
 
+    if (input == 50) {
+      if (m_player->isStopped()) {
+        deal();
+
+        m_player->toggleStop();
+
+        msg = "";
+      }
+
+      // if there were multiple players, this would skip a turn
+      // but since i don't have time for that let's just use this to move
+      // forward
+    }
+
     if (input == 51) {
+      if (m_player->isStopped()) {
+        return;
+      }
+
+      m_player->toggleStop();
       checkWin();
     }
   }
@@ -109,7 +162,11 @@ void Game::render() {
 
     std::printf("Dealer: %d\n", m_dealer->getWins());
 
-    m_dealer->displayHand();
+    if (m_player->isStopped()) {
+      m_dealer->revealHand();
+    } else {
+      m_dealer->displayHand();
+    }
 
     std::printf("You: %d\n", m_player->getWins());
 

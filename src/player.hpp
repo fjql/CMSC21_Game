@@ -10,16 +10,23 @@
 class Player {
   std::vector<std::shared_ptr<Card>> m_hand;
   int m_wins = 0;
+  bool m_stop = false;
 
 public:
   Player() { m_hand = {}; }
 
   std::vector<std::shared_ptr<Card>> getHand() { return m_hand; }
 
+  void resetDeck() { m_hand.clear(); }
+
   int getWins() { return m_wins; }
 
   void addWin() { m_wins++; }
-  
+
+  bool isStopped() { return m_stop; }
+
+  void toggleStop() { m_stop = !m_stop; }
+
   void addCard(std::shared_ptr<Card> card) {
     PlaySound("audio/hit.wav", NULL, SND_ASYNC | SND_FILENAME);
     m_hand.push_back(card);
@@ -51,8 +58,22 @@ public:
   int getVals() {
     int val = 0;
     for (auto card : m_hand) {
+      if (card->getValue() == 0) {
+        continue;
+      }
       val += card->getValue();
     }
+
+    for (auto card : m_hand) {
+      if (card->getValue() == 0) {
+        if (val + 11 > 21) {
+          val += 1;
+        } else {
+          val += 11;
+        }
+      }
+    }
+
     return val;
   }
 };

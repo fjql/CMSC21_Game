@@ -20,17 +20,19 @@ class Game {
   std::shared_ptr<Player> m_player;
   bool m_started = false;
 
-  void generateDeck() {
+  void generateDeck(int decks) {
     m_deck = {};
 
-    for (int i = 0; i < 4; i++) {
-      m_deck.push_back(std::make_shared<Card>(0, Suit(i), ACE));
-      m_deck.push_back(std::make_shared<Card>(10, Suit(i), JACK));
-      m_deck.push_back(std::make_shared<Card>(10, Suit(i), KING));
-      m_deck.push_back(std::make_shared<Card>(10, Suit(i), QUEEN));
+    for (int k = 0; k < decks; k++) {
+      for (int i = 0; i < 4; i++) {
+        m_deck.push_back(std::make_shared<Card>(0, Suit(i), ACE));
+        m_deck.push_back(std::make_shared<Card>(10, Suit(i), JACK));
+        m_deck.push_back(std::make_shared<Card>(10, Suit(i), KING));
+        m_deck.push_back(std::make_shared<Card>(10, Suit(i), QUEEN));
 
-      for (int j = 1; j < 10; j++)
-        m_deck.push_back(std::make_shared<Card>(j + 1, Suit(i), NUMBER));
+        for (int j = 1; j < 10; j++)
+          m_deck.push_back(std::make_shared<Card>(j + 1, Suit(i), NUMBER));
+      }
     }
   }
 
