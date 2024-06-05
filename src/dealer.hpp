@@ -17,6 +17,10 @@ public:
 
   void addCard(std::shared_ptr<Card> card) { m_hand.push_back(card); }
 
+  int getWins() { return m_wins; }
+
+  void addWin() { m_wins++; }
+
   void displayHand() {
     std::printf(dealer.c_str(), m_hand[0]->getSuit().c_str(),
                 m_hand[0]->getFace().c_str(), m_hand[0]->getSuit().c_str());

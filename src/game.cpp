@@ -3,6 +3,7 @@
 #include "game.hpp"
 #include "render.hpp"
 
+
 void Game::loop() {
   render();
   while (m_state != END) {
@@ -51,6 +52,10 @@ void Game::addPlayer() {
   m_deck.shrink_to_fit();
 }
 
+void Game::checkWin() {
+  
+}
+
 void Game::update(char input) {
   if (m_state == START) {
     if (input == 49) {
@@ -83,11 +88,11 @@ void Game::update(char input) {
       m_deck.pop_back();
       m_deck.shrink_to_fit();
 
-      if (m_player->getVals() == 21){
-        checkWin();
-      } else if (m_player->getVals() > 21) {
-        // lose
-      }
+      checkWin();
+    }
+
+    if (input == 51) {
+      checkWin();
     }
   }
 }
@@ -102,11 +107,11 @@ void Game::render() {
   if (m_state == PLAYING) {
     std::printf("%s\n", separator.c_str());
 
-    std::print("Dealer: \n");
+    std::printf("Dealer: %d\n", m_dealer->getWins());
 
     m_dealer->displayHand();
 
-    std::print("You: \n");
+    std::printf("You: %d\n", m_player->getWins());
 
     m_player->displayHand();
 

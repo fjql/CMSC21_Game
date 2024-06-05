@@ -16,6 +16,10 @@ public:
 
   std::vector<std::shared_ptr<Card>> getHand() { return m_hand; }
 
+  int getWins() { return m_wins; }
+
+  void addWin() { m_wins++; }
+  
   void addCard(std::shared_ptr<Card> card) {
     PlaySound("audio/hit.wav", NULL, SND_ASYNC | SND_FILENAME);
     m_hand.push_back(card);
