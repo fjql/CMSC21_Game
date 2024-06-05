@@ -23,10 +23,10 @@ public:
   }
 
   void revealHand() {
-      std::printf(player.c_str(), m_hand[0]->getSuit().c_str(),
-                  m_hand[1]->getSuit().c_str(), m_hand[0]->getFace().c_str(),
-                  m_hand[1]->getFace().c_str(), m_hand[0]->getSuit().c_str(),
-                  m_hand[1]->getSuit().c_str());
+    std::printf(player.c_str(), m_hand[0]->getSuit().c_str(),
+                m_hand[1]->getSuit().c_str(), m_hand[0]->getFace().c_str(),
+                m_hand[1]->getFace().c_str(), m_hand[0]->getSuit().c_str(),
+                m_hand[1]->getSuit().c_str());
   }
 
   int getVals() {

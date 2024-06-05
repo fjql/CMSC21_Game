@@ -79,6 +79,8 @@ public:
   void addDealer();
   void addPlayer();
 
+  void checkWin();
+
   void update(char input);
   void render();
 

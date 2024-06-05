@@ -84,7 +84,7 @@ void Game::update(char input) {
       m_deck.shrink_to_fit();
 
       if (m_player->getVals() == 21){
-        // win
+        checkWin();
       } else if (m_player->getVals() > 21) {
         // lose
       }
