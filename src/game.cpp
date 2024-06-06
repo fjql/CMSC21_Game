@@ -151,7 +151,7 @@ void Game::update(char input) {
 }
 
 void Game::render() {
-  std::system("clear");
+  std::system("cls");
   if (m_state == START) {
     std::printf("%s\n%s\n%s\n%s\n%s\n", separator.c_str(), start.c_str(),
                 separator.c_str(), start_options.c_str(), separator.c_str());
