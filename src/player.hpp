@@ -56,6 +56,8 @@ public:
   }
 
   int getVals() {
+    // sum the values, if the value is 0 then check if adding 11 exceeds 21 if it does then just add 1
+
     int val = 0;
     for (auto card : m_hand) {
       if (card->getValue() == 0) {

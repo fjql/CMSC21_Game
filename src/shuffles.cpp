@@ -7,6 +7,8 @@
 #include <vector>
 
 void Game::shuffleHalf() {
+  // cut cards in half to swap top and bottom
+
   std::vector<std::shared_ptr<Card>> first(m_deck.begin(), m_deck.begin() + 26);
   std::vector<std::shared_ptr<Card>> second(m_deck.begin() + 26, m_deck.end());
 
@@ -17,6 +19,8 @@ void Game::shuffleHalf() {
 }
 
 void Game::shuffleOverhand() {
+  // take chunks of cards then move to bottom of deck
+
   std::vector<std::shared_ptr<Card>> temp(m_deck.begin(), m_deck.end());
 
   m_deck.clear();
@@ -38,6 +42,8 @@ void Game::shuffleOverhand() {
 }
 
 void Game::shuffleRiffle() {
+  // cut cards in half then place them alternately
+
   std::vector<std::shared_ptr<Card>> first(m_deck.begin(), m_deck.begin() + 26);
   std::vector<std::shared_ptr<Card>> second(m_deck.begin() + 26, m_deck.end());
 
